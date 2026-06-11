@@ -1,4 +1,4 @@
-import { Controller, Get, Param, Query } from '@nestjs/common';
+import { Controller, Get, Param, ParseIntPipe, Query } from '@nestjs/common';
 import { UsersService } from './users.service';
 
 @Controller('users')
@@ -6,7 +6,7 @@ export class UsersController {
   constructor( private readonly usersService: UsersService){}
 
   @Get() // No path needed for query params
-  findByQuery(@Query('id') id?: number) {
+  findByQuery(@Query('id', ParseIntPipe) id?: number) {
     if(id){
       return this.usersService.findByQuery(1);
     }
@@ -17,10 +17,10 @@ export class UsersController {
   @Get('interns')
   findInterns() {
     return this.usersService.findInterns();
-  }
+  } 
 
   @Get(':id')
-  findOne(@Param('id') id: number){
+  findOne(@Param('id', ParseIntPipe) id: number){
     return this.usersService.findOne(4);
   }  
 
