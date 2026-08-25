@@ -1,3 +1,4 @@
+/// <reference types="@types/jest" />
 import { Test, TestingModule } from '@nestjs/testing';
 import { UsersController } from './users.controller';
 
@@ -16,3 +17,7 @@ describe('UsersController', () => {
     expect(controller).toBeDefined();
   });
 });
+function expect(controller: UsersController) {
+  throw new Error('Function not implemented.');
+}
+

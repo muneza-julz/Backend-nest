@@ -1,7 +1,7 @@
 import { Controller, Get, Param, ParseIntPipe, Query } from '@nestjs/common';
 import { UsersService } from './users.service';
 
-@Controller('users')
+@Controller('users') // handles user-related routes
 export class UsersController {
   constructor( private readonly usersService: UsersService){}
 
